@@ -73,27 +73,3 @@ Mise à jour depuis la v0.1 : les anciens appareils (« Ventilateur de plafond�
 - `tools/compose.js` : régénère `app.json` à partir de `.homeycompose/` sans la CLI. La CLI le fait aussi automatiquement.
 
 Le protocole n'est pas documenté par Dreo. Il vient du projet open source [hass-dreo](https://github.com/JeffSteinbok/hass-dreo) (licence MIT), qui prend en charge ces trois modèles dans Home Assistant.
-
-## Tests
-
-```bash
-npm test
-```
-
-18 tests sans matériel, avec des états réels de CF712S et de CLF521S publiés par hass-dreo et un faux SDK Homey : connexion et région, 401 avec re-login, format des commandes WebSocket, logique de porte, conversions, appairage complet, Flows, scènes, couleur de l'anneau, programmation (fuseau Europe/Paris, heure d'été, jours, profil désactivé).
-
-## À vérifier sur le vrai matériel
-
-1. **Scènes de l'anneau sur le CF521S RGBIC (DR-HCF007S).** Le catalogue d'effets du cloud a été observé sur un CF712S. Si le cloud ne propose pas les scènes pour le 521S, l'action renvoie l'erreur « scène non proposée ». Il faudra alors passer par la clé `rgbpresetsel`.
-2. **Le mode « quiet ».** L'appli Dreo envoie `mode` = 1 (normal), 2 (naturel) et 3 (sommeil), plus 5 (auto) sur le 712S et 4 (inversion du sens) sur le 521S. J'ai associé « quiet » au mode 2 (naturel). À confirmer en comparant avec ce qu'affiche l'appli Dreo.
-3. **Le sens de la température du blanc.** D'après hass-dreo, 0 correspond à 2700 K (chaud). S'il est inversé, il suffit de changer `colorTempParam` et `toCapabilities` dans `CeilingFanState.js`.
-
-## Publication sur le Homey App Store
-
-L'app passe déjà la validation de niveau « publish ». Pour la publier depuis le PC :
-
-1. Dans `.homeycompose/app.json`, ajouter l'e-mail de contact public dans `"author": { "name": "Christophe", "email": "…" }`. Ajouter aussi, si possible, un lien `"homepage"` ou `"support"`, par exemple un dépôt GitHub.
-2. Dans le dossier de l'app : `homey app validate --level publish`, puis `homey app publish`.
-3. Sur https://tools.developer.homey.app/apps, ouvrir l'app, vérifier la fiche (description, captures), puis cliquer sur **Submit for certification**. Athom relit l'app avant de l'ouvrir au public. On peut d'abord la publier en **Test**, avec un lien privé.
-
-L'identifiant `com.christophe.dreoceilingfans` et la mention « community » évitent toute confusion avec l'app officielle Dreo.
