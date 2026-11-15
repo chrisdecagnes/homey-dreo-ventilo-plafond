@@ -1,1 +1,63 @@
-
+{
+  "id": "com.christophe.dreoceilingfans",
+  "version": "0.4.1",
+  "compatibility": ">=12.0.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "brandColor": "#1A6FD6",
+  "name": {
+    "en": "DREO Ceiling Fan (community)",
+    "fr": "DREO Ventilo-plafond (community)"
+  },
+  "description": {
+    "en": "Community app for Dreo ceiling fans (CF712S, CF521S RGBIC, CLF521S): fan, light, RGBIC LED ring and weekly schedules.",
+    "fr": "App communautaire pour les ventilateurs de plafond Dreo (CF712S, CF521S RGBIC, CLF521S) : ventilation, lumière, anneau LED RGBIC et programmation hebdomadaire."
+  },
+  "category": [
+    "climate"
+  ],
+  "tags": {
+    "en": [
+      "dreo",
+      "ceiling fan",
+      "fan",
+      "light",
+      "rgbic"
+    ],
+    "fr": [
+      "dreo",
+      "ventilateur de plafond",
+      "ventilateur",
+      "lumière",
+      "rgbic"
+    ]
+  },
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "ChrisDeCagnes",
+    "email": "infotitou@icloud.com"
+  },
+  "api": {
+    "getFans": {
+      "method": "GET",
+      "path": "/fans"
+    },
+    "testRule": {
+      "method": "POST",
+      "path": "/test"
+    }
+  },
+  "homepage": "https://github.com/chrisdecagnes/homey-dreo-ventilo-plafond",
+  "source": "https://github.com/chrisdecagnes/homey-dreo-ventilo-plafond",
+  "support": "https://github.com/chrisdecagnes/homey-dreo-ventilo-plafond/issues",
+  "bugs": {
+    "url": "https://github.com/chrisdecagnes/homey-dreo-ventilo-plafond/issues"
+  }
+}
