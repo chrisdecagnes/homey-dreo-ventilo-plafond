@@ -1,0 +1,35 @@
+{
+  "errors": {
+    "no_account": "Aucun compte Dreo configuré. Ajoutez un appareil pour vous connecter.",
+    "login_failed": "Connexion au compte Dreo impossible. Vérifiez l'adresse e-mail et le mot de passe.",
+    "cloud_unreachable": "Cloud Dreo injoignable",
+    "device_offline": "Ventilateur hors ligne dans le cloud Dreo",
+    "mode_not_supported": "Ce mode n'est pas pris en charge par ce modèle",
+    "no_ring": "Ce ventilateur n'a pas d'anneau LED",
+    "unknown_scene": "Scène inconnue",
+    "scene_not_in_catalog": "Cette scène n'est pas proposée par le cloud Dreo pour ce ventilateur",
+    "color_not_supported": "Ce ventilateur n'accepte pas de couleur fixe pour l'anneau",
+    "schedule_no_device": "Aucun appareil Homey pour ce ventilateur"
+  },
+  "modes": {
+    "normal": "Normal",
+    "natural": "Naturel (silencieux)",
+    "sleep": "Sommeil",
+    "auto": "Auto",
+    "reverse": "Inversé (hiver)"
+  },
+  "scenes": {
+    "wave": "Vague",
+    "cherry_blossom": "Fleur de cerisier",
+    "christmas": "Noël",
+    "halloween": "Halloween",
+    "birthday_party": "Fête d'anniversaire",
+    "firefly": "Luciole",
+    "other": "Autre / couleur fixe"
+  },
+  "roles": {
+    "fan": "Ventilateur",
+    "light": "Lumière",
+    "ring": "Anneau LED"
+  }
+}

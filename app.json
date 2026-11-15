@@ -1,0 +1,867 @@
+{
+  "_comment": "This file is generated. Please edit .homeycompose/app.json instead.",
+  "id": "com.christophe.dreoceilingfans",
+  "version": "0.4.1",
+  "compatibility": ">=12.0.0",
+  "sdk": 3,
+  "platforms": [
+    "local"
+  ],
+  "brandColor": "#1A6FD6",
+  "name": {
+    "en": "DREO Ceiling Fan (community)",
+    "fr": "DREO Ventilo-plafond (community)"
+  },
+  "description": {
+    "en": "Community app for Dreo ceiling fans (CF712S, CF521S RGBIC, CLF521S): fan, light, RGBIC LED ring and weekly schedules.",
+    "fr": "App communautaire pour les ventilateurs de plafond Dreo (CF712S, CF521S RGBIC, CLF521S) : ventilation, lumière, anneau LED RGBIC et programmation hebdomadaire."
+  },
+  "category": [
+    "climate"
+  ],
+  "tags": {
+    "en": [
+      "dreo",
+      "ceiling fan",
+      "fan",
+      "light",
+      "rgbic"
+    ],
+    "fr": [
+      "dreo",
+      "ventilateur de plafond",
+      "ventilateur",
+      "lumière",
+      "rgbic"
+    ]
+  },
+  "permissions": [],
+  "images": {
+    "small": "/assets/images/small.png",
+    "large": "/assets/images/large.png",
+    "xlarge": "/assets/images/xlarge.png"
+  },
+  "author": {
+    "name": "ChrisDeCagnes",
+    "email": "infotitou@icloud.com"
+  },
+  "api": {
+    "getFans": {
+      "method": "GET",
+      "path": "/fans"
+    },
+    "testRule": {
+      "method": "POST",
+      "path": "/test"
+    }
+  },
+  "homepage": "https://github.com/chrisdecagnes/homey-dreo-ventilo-plafond",
+  "source": "https://github.com/chrisdecagnes/homey-dreo-ventilo-plafond",
+  "support": "https://github.com/chrisdecagnes/homey-dreo-ventilo-plafond/issues",
+  "bugs": {
+    "url": "https://github.com/chrisdecagnes/homey-dreo-ventilo-plafond/issues"
+  },
+  "capabilities": {
+    "dreo_fan_mode": {
+      "type": "enum",
+      "title": {
+        "en": "Fan mode",
+        "fr": "Mode du ventilateur"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "picker",
+      "icon": "/assets/fan.svg",
+      "values": [
+        {
+          "id": "normal",
+          "title": {
+            "en": "Normal",
+            "fr": "Normal"
+          }
+        },
+        {
+          "id": "natural",
+          "title": {
+            "en": "Natural (quiet)",
+            "fr": "Naturel (silencieux)"
+          }
+        },
+        {
+          "id": "sleep",
+          "title": {
+            "en": "Sleep",
+            "fr": "Sommeil"
+          }
+        },
+        {
+          "id": "auto",
+          "title": {
+            "en": "Auto (CF712S)",
+            "fr": "Auto (CF712S)"
+          }
+        },
+        {
+          "id": "reverse",
+          "title": {
+            "en": "Reverse – winter (CF521S, CLF521S)",
+            "fr": "Inversé – hiver (CF521S, CLF521S)"
+          }
+        }
+      ]
+    },
+    "dreo_fan_speed": {
+      "type": "number",
+      "title": {
+        "en": "Fan speed",
+        "fr": "Vitesse du ventilateur"
+      },
+      "getable": true,
+      "setable": true,
+      "min": 1,
+      "max": 12,
+      "step": 1,
+      "decimals": 0,
+      "uiComponent": "slider",
+      "icon": "/assets/fan.svg",
+      "insights": true
+    },
+    "dreo_ring_scene": {
+      "type": "enum",
+      "title": {
+        "en": "LED ring scene",
+        "fr": "Scène de l'anneau LED"
+      },
+      "getable": true,
+      "setable": true,
+      "uiComponent": "picker",
+      "icon": "/assets/ring.svg",
+      "values": [
+        {
+          "id": "wave",
+          "title": {
+            "en": "Wave",
+            "fr": "Vague"
+          }
+        },
+        {
+          "id": "cherry_blossom",
+          "title": {
+            "en": "Cherry blossom",
+            "fr": "Fleur de cerisier"
+          }
+        },
+        {
+          "id": "christmas",
+          "title": {
+            "en": "Christmas",
+            "fr": "Noël"
+          }
+        },
+        {
+          "id": "halloween",
+          "title": {
+            "en": "Halloween",
+            "fr": "Halloween"
+          }
+        },
+        {
+          "id": "birthday_party",
+          "title": {
+            "en": "Birthday party",
+            "fr": "Fête d'anniversaire"
+          }
+        },
+        {
+          "id": "firefly",
+          "title": {
+            "en": "Firefly",
+            "fr": "Luciole"
+          }
+        },
+        {
+          "id": "other",
+          "title": {
+            "en": "Other / fixed colour",
+            "fr": "Autre / couleur fixe"
+          }
+        }
+      ]
+    }
+  },
+  "flow": {
+    "triggers": [
+      {
+        "id": "fan_mode_changed",
+        "title": {
+          "en": "Fan mode changed",
+          "fr": "Le mode du ventilateur a changé"
+        },
+        "tokens": [
+          {
+            "name": "mode",
+            "type": "string",
+            "title": {
+              "en": "Mode",
+              "fr": "Mode"
+            },
+            "example": {
+              "en": "Sleep",
+              "fr": "Sommeil"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=fan"
+          }
+        ]
+      },
+      {
+        "id": "fan_speed_changed",
+        "title": {
+          "en": "Fan speed changed",
+          "fr": "La vitesse du ventilateur a changé"
+        },
+        "tokens": [
+          {
+            "name": "speed",
+            "type": "number",
+            "title": {
+              "en": "Speed",
+              "fr": "Vitesse"
+            },
+            "example": 6
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=fan"
+          }
+        ]
+      },
+      {
+        "id": "ring_scene_changed",
+        "title": {
+          "en": "LED ring scene changed",
+          "fr": "La scène de l'anneau LED a changé"
+        },
+        "tokens": [
+          {
+            "name": "scene",
+            "type": "string",
+            "title": {
+              "en": "Scene",
+              "fr": "Scène"
+            },
+            "example": {
+              "en": "Firefly",
+              "fr": "Luciole"
+            }
+          }
+        ],
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=ring"
+          }
+        ]
+      }
+    ],
+    "conditions": [
+      {
+        "id": "fan_mode_is",
+        "title": {
+          "en": "Fan mode !{{is|is not}}",
+          "fr": "Le mode du ventilateur !{{est|n'est pas}}"
+        },
+        "titleFormatted": {
+          "en": "Fan mode !{{is|is not}} [[mode]]",
+          "fr": "Le mode du ventilateur !{{est|n'est pas}} [[mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=fan"
+          },
+          {
+            "type": "dropdown",
+            "name": "mode",
+            "values": [
+              {
+                "id": "normal",
+                "label": {
+                  "en": "Normal",
+                  "fr": "Normal"
+                }
+              },
+              {
+                "id": "natural",
+                "label": {
+                  "en": "Natural (quiet)",
+                  "fr": "Naturel (silencieux)"
+                }
+              },
+              {
+                "id": "sleep",
+                "label": {
+                  "en": "Sleep",
+                  "fr": "Sommeil"
+                }
+              },
+              {
+                "id": "auto",
+                "label": {
+                  "en": "Auto (CF712S)",
+                  "fr": "Auto (CF712S)"
+                }
+              },
+              {
+                "id": "reverse",
+                "label": {
+                  "en": "Reverse – winter (CF521S, CLF521S)",
+                  "fr": "Inversé – hiver (CF521S, CLF521S)"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "schedule_profile_enabled",
+        "title": {
+          "en": "Weekly schedule !{{is|is not}} enabled",
+          "fr": "La programmation !{{est|n'est pas}} active"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=fan"
+          }
+        ]
+      }
+    ],
+    "actions": [
+      {
+        "id": "fan_set_mode",
+        "title": {
+          "en": "Set fan mode",
+          "fr": "Choisir le mode du ventilateur"
+        },
+        "titleFormatted": {
+          "en": "Set fan mode to [[mode]]",
+          "fr": "Mettre le ventilateur en mode [[mode]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=fan"
+          },
+          {
+            "type": "dropdown",
+            "name": "mode",
+            "values": [
+              {
+                "id": "normal",
+                "label": {
+                  "en": "Normal",
+                  "fr": "Normal"
+                }
+              },
+              {
+                "id": "natural",
+                "label": {
+                  "en": "Natural (quiet)",
+                  "fr": "Naturel (silencieux)"
+                }
+              },
+              {
+                "id": "sleep",
+                "label": {
+                  "en": "Sleep",
+                  "fr": "Sommeil"
+                }
+              },
+              {
+                "id": "auto",
+                "label": {
+                  "en": "Auto (CF712S)",
+                  "fr": "Auto (CF712S)"
+                }
+              },
+              {
+                "id": "reverse",
+                "label": {
+                  "en": "Reverse – winter (CF521S, CLF521S)",
+                  "fr": "Inversé – hiver (CF521S, CLF521S)"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "fan_set_speed",
+        "title": {
+          "en": "Set fan speed",
+          "fr": "Régler la vitesse du ventilateur"
+        },
+        "titleFormatted": {
+          "en": "Set fan speed to [[speed]]",
+          "fr": "Régler la vitesse du ventilateur sur [[speed]]"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=fan"
+          },
+          {
+            "type": "range",
+            "name": "speed",
+            "min": 1,
+            "max": 12,
+            "step": 1,
+            "labelDecimals": 0
+          }
+        ]
+      },
+      {
+        "id": "ring_set_scene",
+        "title": {
+          "en": "Set LED ring scene",
+          "fr": "Choisir la scène de l'anneau LED"
+        },
+        "titleFormatted": {
+          "en": "Set LED ring scene to [[scene]]",
+          "fr": "Lancer la scène [[scene]] sur l'anneau LED"
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=ring"
+          },
+          {
+            "type": "dropdown",
+            "name": "scene",
+            "values": [
+              {
+                "id": "wave",
+                "label": {
+                  "en": "Wave",
+                  "fr": "Vague"
+                }
+              },
+              {
+                "id": "cherry_blossom",
+                "label": {
+                  "en": "Cherry blossom",
+                  "fr": "Fleur de cerisier"
+                }
+              },
+              {
+                "id": "christmas",
+                "label": {
+                  "en": "Christmas",
+                  "fr": "Noël"
+                }
+              },
+              {
+                "id": "halloween",
+                "label": {
+                  "en": "Halloween",
+                  "fr": "Halloween"
+                }
+              },
+              {
+                "id": "birthday_party",
+                "label": {
+                  "en": "Birthday party",
+                  "fr": "Fête d'anniversaire"
+                }
+              },
+              {
+                "id": "firefly",
+                "label": {
+                  "en": "Firefly",
+                  "fr": "Luciole"
+                }
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "schedule_profile_set",
+        "title": {
+          "en": "Enable or disable the weekly schedule",
+          "fr": "Activer ou désactiver la programmation"
+        },
+        "titleFormatted": {
+          "en": "[[state]] the weekly schedule of this fan",
+          "fr": "[[state]] la programmation de ce ventilateur"
+        },
+        "hint": {
+          "en": "Schedules are configured in the app settings.",
+          "fr": "La programmation se règle dans les réglages de l'application."
+        },
+        "args": [
+          {
+            "type": "device",
+            "name": "device",
+            "filter": "driver_id=fan"
+          },
+          {
+            "type": "dropdown",
+            "name": "state",
+            "values": [
+              {
+                "id": "enabled",
+                "label": {
+                  "en": "Enable",
+                  "fr": "Activer"
+                }
+              },
+              {
+                "id": "disabled",
+                "label": {
+                  "en": "Disable",
+                  "fr": "Désactiver"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "drivers": [
+    {
+      "id": "fan",
+      "name": {
+        "en": "Ceiling fan – fan",
+        "fr": "Ventilateur de plafond – ventilation"
+      },
+      "class": "fan",
+      "capabilities": [
+        "onoff",
+        "dreo_fan_speed",
+        "dreo_fan_mode"
+      ],
+      "capabilitiesOptions": {},
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "cloud"
+      ],
+      "images": {
+        "small": "/drivers/fan/assets/images/small.png",
+        "large": "/drivers/fan/assets/images/large.png",
+        "xlarge": "/drivers/fan/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "login_credentials",
+          "template": "login_credentials",
+          "options": {
+            "title": {
+              "en": "Dreo account",
+              "fr": "Compte Dreo"
+            },
+            "usernameLabel": {
+              "en": "E-mail address",
+              "fr": "Adresse e-mail"
+            },
+            "usernamePlaceholder": {
+              "en": "you@example.com",
+              "fr": "vous@exemple.fr"
+            },
+            "passwordLabel": {
+              "en": "Password",
+              "fr": "Mot de passe"
+            },
+            "passwordPlaceholder": {
+              "en": "Dreo password",
+              "fr": "Mot de passe Dreo"
+            }
+          }
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "repair": [
+        {
+          "id": "login_credentials",
+          "template": "login_credentials",
+          "options": {
+            "title": {
+              "en": "Dreo account",
+              "fr": "Compte Dreo"
+            },
+            "usernameLabel": {
+              "en": "E-mail address",
+              "fr": "Adresse e-mail"
+            },
+            "usernamePlaceholder": {
+              "en": "you@example.com",
+              "fr": "vous@exemple.fr"
+            },
+            "passwordLabel": {
+              "en": "Password",
+              "fr": "Mot de passe"
+            },
+            "passwordPlaceholder": {
+              "en": "Dreo password",
+              "fr": "Mot de passe Dreo"
+            }
+          }
+        }
+      ],
+      "settings": [
+        {
+          "id": "model",
+          "type": "label",
+          "label": {
+            "en": "Model",
+            "fr": "Modèle"
+          },
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "light",
+      "name": {
+        "en": "Ceiling fan – light",
+        "fr": "Ventilateur de plafond – lumière"
+      },
+      "class": "light",
+      "capabilities": [
+        "onoff",
+        "dim",
+        "light_temperature"
+      ],
+      "capabilitiesOptions": {
+        "light_temperature": {
+          "title": {
+            "en": "White temperature",
+            "fr": "Température du blanc"
+          }
+        }
+      },
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "cloud"
+      ],
+      "images": {
+        "small": "/drivers/light/assets/images/small.png",
+        "large": "/drivers/light/assets/images/large.png",
+        "xlarge": "/drivers/light/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "login_credentials",
+          "template": "login_credentials",
+          "options": {
+            "title": {
+              "en": "Dreo account",
+              "fr": "Compte Dreo"
+            },
+            "usernameLabel": {
+              "en": "E-mail address",
+              "fr": "Adresse e-mail"
+            },
+            "usernamePlaceholder": {
+              "en": "you@example.com",
+              "fr": "vous@exemple.fr"
+            },
+            "passwordLabel": {
+              "en": "Password",
+              "fr": "Mot de passe"
+            },
+            "passwordPlaceholder": {
+              "en": "Dreo password",
+              "fr": "Mot de passe Dreo"
+            }
+          }
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "repair": [
+        {
+          "id": "login_credentials",
+          "template": "login_credentials",
+          "options": {
+            "title": {
+              "en": "Dreo account",
+              "fr": "Compte Dreo"
+            },
+            "usernameLabel": {
+              "en": "E-mail address",
+              "fr": "Adresse e-mail"
+            },
+            "usernamePlaceholder": {
+              "en": "you@example.com",
+              "fr": "vous@exemple.fr"
+            },
+            "passwordLabel": {
+              "en": "Password",
+              "fr": "Mot de passe"
+            },
+            "passwordPlaceholder": {
+              "en": "Dreo password",
+              "fr": "Mot de passe Dreo"
+            }
+          }
+        }
+      ],
+      "settings": [
+        {
+          "id": "model",
+          "type": "label",
+          "label": {
+            "en": "Model",
+            "fr": "Modèle"
+          },
+          "value": ""
+        }
+      ]
+    },
+    {
+      "id": "ring",
+      "name": {
+        "en": "Ceiling fan – RGBIC LED ring",
+        "fr": "Ventilateur de plafond – anneau LED RGBIC"
+      },
+      "class": "light",
+      "capabilities": [
+        "onoff",
+        "dim",
+        "light_hue",
+        "light_saturation",
+        "dreo_ring_scene"
+      ],
+      "capabilitiesOptions": {},
+      "platforms": [
+        "local"
+      ],
+      "connectivity": [
+        "cloud"
+      ],
+      "images": {
+        "small": "/drivers/ring/assets/images/small.png",
+        "large": "/drivers/ring/assets/images/large.png",
+        "xlarge": "/drivers/ring/assets/images/xlarge.png"
+      },
+      "pair": [
+        {
+          "id": "login_credentials",
+          "template": "login_credentials",
+          "options": {
+            "title": {
+              "en": "Dreo account",
+              "fr": "Compte Dreo"
+            },
+            "usernameLabel": {
+              "en": "E-mail address",
+              "fr": "Adresse e-mail"
+            },
+            "usernamePlaceholder": {
+              "en": "you@example.com",
+              "fr": "vous@exemple.fr"
+            },
+            "passwordLabel": {
+              "en": "Password",
+              "fr": "Mot de passe"
+            },
+            "passwordPlaceholder": {
+              "en": "Dreo password",
+              "fr": "Mot de passe Dreo"
+            }
+          }
+        },
+        {
+          "id": "list_devices",
+          "template": "list_devices",
+          "navigation": {
+            "next": "add_devices"
+          }
+        },
+        {
+          "id": "add_devices",
+          "template": "add_devices"
+        }
+      ],
+      "repair": [
+        {
+          "id": "login_credentials",
+          "template": "login_credentials",
+          "options": {
+            "title": {
+              "en": "Dreo account",
+              "fr": "Compte Dreo"
+            },
+            "usernameLabel": {
+              "en": "E-mail address",
+              "fr": "Adresse e-mail"
+            },
+            "usernamePlaceholder": {
+              "en": "you@example.com",
+              "fr": "vous@exemple.fr"
+            },
+            "passwordLabel": {
+              "en": "Password",
+              "fr": "Mot de passe"
+            },
+            "passwordPlaceholder": {
+              "en": "Dreo password",
+              "fr": "Mot de passe Dreo"
+            }
+          }
+        }
+      ],
+      "settings": [
+        {
+          "id": "model",
+          "type": "label",
+          "label": {
+            "en": "Model",
+            "fr": "Modèle"
+          },
+          "value": ""
+        }
+      ]
+    }
+  ]
+}

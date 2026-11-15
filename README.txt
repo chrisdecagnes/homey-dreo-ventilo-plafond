@@ -1,0 +1,1 @@
+Control Dreo ceiling fans (CF712S RGBIC, CF521S RGBIC, CLF521S) from Homey: fan on/off, speed 1-12, normal/natural/sleep modes, main light on/off, brightness and white temperature, and the RGBIC LED ring (on/off, brightness, scenes). Unofficial app using the Dreo cloud.

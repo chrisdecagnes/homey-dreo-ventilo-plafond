@@ -1,0 +1,1 @@
+Pilotez vos ventilateurs de plafond Dreo (CF712S RGBIC, CF521S RGBIC, CLF521S) depuis Homey : marche/arrêt, vitesse 1-12, modes normal/naturel/sommeil, lumière centrale (marche/arrêt, intensité, température du blanc) et anneau LED RGBIC (marche/arrêt, intensité, scènes). Application non officielle utilisant le cloud Dreo.

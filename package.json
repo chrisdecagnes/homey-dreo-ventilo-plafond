@@ -1,0 +1,18 @@
+{
+  "name": "com.christophe.dreoceilingfans",
+  "version": "0.4.1",
+  "description": "Homey Pro app for Dreo ceiling fans (CF712S, CF521S RGBIC, CLF521S)",
+  "main": "app.js",
+  "private": true,
+  "license": "MIT",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "node --test test/*.test.js",
+    "compose": "node tools/compose.js"
+  },
+  "dependencies": {
+    "ws": "^8.18.0"
+  }
+}

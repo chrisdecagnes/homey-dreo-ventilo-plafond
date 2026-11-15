@@ -1,0 +1,35 @@
+{
+  "errors": {
+    "no_account": "No Dreo account configured. Add a device to sign in.",
+    "login_failed": "Could not sign in to Dreo. Check your e-mail address and password.",
+    "cloud_unreachable": "Dreo cloud unreachable",
+    "device_offline": "Fan is offline in the Dreo cloud",
+    "mode_not_supported": "This mode is not supported by this model",
+    "no_ring": "This fan has no LED ring",
+    "unknown_scene": "Unknown scene",
+    "scene_not_in_catalog": "The Dreo cloud does not offer this scene for this fan",
+    "color_not_supported": "This fan does not accept a fixed ring colour",
+    "schedule_no_device": "No Homey device for this fan"
+  },
+  "modes": {
+    "normal": "Normal",
+    "natural": "Natural (quiet)",
+    "sleep": "Sleep",
+    "auto": "Auto",
+    "reverse": "Reverse (winter)"
+  },
+  "scenes": {
+    "wave": "Wave",
+    "cherry_blossom": "Cherry blossom",
+    "christmas": "Christmas",
+    "halloween": "Halloween",
+    "birthday_party": "Birthday party",
+    "firefly": "Firefly",
+    "other": "Other / fixed colour"
+  },
+  "roles": {
+    "fan": "Fan",
+    "light": "Light",
+    "ring": "LED ring"
+  }
+}
