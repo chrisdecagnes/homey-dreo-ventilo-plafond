@@ -1,0 +1,27 @@
+{
+  "title": {
+    "en": "Fan mode changed",
+    "fr": "Le mode du ventilateur a changé"
+  },
+  "tokens": [
+    {
+      "name": "mode",
+      "type": "string",
+      "title": {
+        "en": "Mode",
+        "fr": "Mode"
+      },
+      "example": {
+        "en": "Sleep",
+        "fr": "Sommeil"
+      }
+    }
+  ],
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=fan"
+    }
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "title": {
+    "en": "Fan speed changed",
+    "fr": "La vitesse du ventilateur a changé"
+  },
+  "tokens": [
+    {
+      "name": "speed",
+      "type": "number",
+      "title": {
+        "en": "Speed",
+        "fr": "Vitesse"
+      },
+      "example": 6
+    }
+  ],
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=fan"
+    }
+  ]
+}

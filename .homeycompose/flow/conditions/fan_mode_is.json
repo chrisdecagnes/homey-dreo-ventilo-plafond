@@ -1,0 +1,58 @@
+{
+  "title": {
+    "en": "Fan mode !{{is|is not}}",
+    "fr": "Le mode du ventilateur !{{est|n'est pas}}"
+  },
+  "titleFormatted": {
+    "en": "Fan mode !{{is|is not}} [[mode]]",
+    "fr": "Le mode du ventilateur !{{est|n'est pas}} [[mode]]"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=fan"
+    },
+    {
+      "type": "dropdown",
+      "name": "mode",
+      "values": [
+        {
+          "id": "normal",
+          "label": {
+            "en": "Normal",
+            "fr": "Normal"
+          }
+        },
+        {
+          "id": "natural",
+          "label": {
+            "en": "Natural (quiet)",
+            "fr": "Naturel (silencieux)"
+          }
+        },
+        {
+          "id": "sleep",
+          "label": {
+            "en": "Sleep",
+            "fr": "Sommeil"
+          }
+        },
+        {
+          "id": "auto",
+          "label": {
+            "en": "Auto (CF712S)",
+            "fr": "Auto (CF712S)"
+          }
+        },
+        {
+          "id": "reverse",
+          "label": {
+            "en": "Reverse – winter (CF521S, CLF521S)",
+            "fr": "Inversé – hiver (CF521S, CLF521S)"
+          }
+        }
+      ]
+    }
+  ]
+}

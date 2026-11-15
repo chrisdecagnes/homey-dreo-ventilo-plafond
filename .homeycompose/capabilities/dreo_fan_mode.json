@@ -1,0 +1,48 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "Fan mode",
+    "fr": "Mode du ventilateur"
+  },
+  "getable": true,
+  "setable": true,
+  "uiComponent": "picker",
+  "icon": "/assets/fan.svg",
+  "values": [
+    {
+      "id": "normal",
+      "title": {
+        "en": "Normal",
+        "fr": "Normal"
+      }
+    },
+    {
+      "id": "natural",
+      "title": {
+        "en": "Natural (quiet)",
+        "fr": "Naturel (silencieux)"
+      }
+    },
+    {
+      "id": "sleep",
+      "title": {
+        "en": "Sleep",
+        "fr": "Sommeil"
+      }
+    },
+    {
+      "id": "auto",
+      "title": {
+        "en": "Auto (CF712S)",
+        "fr": "Auto (CF712S)"
+      }
+    },
+    {
+      "id": "reverse",
+      "title": {
+        "en": "Reverse – winter (CF521S, CLF521S)",
+        "fr": "Inversé – hiver (CF521S, CLF521S)"
+      }
+    }
+  ]
+}

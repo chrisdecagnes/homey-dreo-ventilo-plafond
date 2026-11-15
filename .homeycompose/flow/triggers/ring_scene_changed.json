@@ -1,0 +1,27 @@
+{
+  "title": {
+    "en": "LED ring scene changed",
+    "fr": "La scène de l'anneau LED a changé"
+  },
+  "tokens": [
+    {
+      "name": "scene",
+      "type": "string",
+      "title": {
+        "en": "Scene",
+        "fr": "Scène"
+      },
+      "example": {
+        "en": "Firefly",
+        "fr": "Luciole"
+      }
+    }
+  ],
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=ring"
+    }
+  ]
+}

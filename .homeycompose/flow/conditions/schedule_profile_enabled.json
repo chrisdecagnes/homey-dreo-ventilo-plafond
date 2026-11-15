@@ -1,0 +1,13 @@
+{
+  "title": {
+    "en": "Weekly schedule !{{is|is not}} enabled",
+    "fr": "La programmation !{{est|n'est pas}} active"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=fan"
+    }
+  ]
+}

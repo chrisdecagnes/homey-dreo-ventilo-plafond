@@ -1,0 +1,41 @@
+{
+  "title": {
+    "en": "Enable or disable the weekly schedule",
+    "fr": "Activer ou désactiver la programmation"
+  },
+  "titleFormatted": {
+    "en": "[[state]] the weekly schedule of this fan",
+    "fr": "[[state]] la programmation de ce ventilateur"
+  },
+  "hint": {
+    "en": "Schedules are configured in the app settings.",
+    "fr": "La programmation se règle dans les réglages de l'application."
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=fan"
+    },
+    {
+      "type": "dropdown",
+      "name": "state",
+      "values": [
+        {
+          "id": "enabled",
+          "label": {
+            "en": "Enable",
+            "fr": "Activer"
+          }
+        },
+        {
+          "id": "disabled",
+          "label": {
+            "en": "Disable",
+            "fr": "Désactiver"
+          }
+        }
+      ]
+    }
+  ]
+}

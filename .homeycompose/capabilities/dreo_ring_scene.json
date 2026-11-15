@@ -1,0 +1,62 @@
+{
+  "type": "enum",
+  "title": {
+    "en": "LED ring scene",
+    "fr": "Scène de l'anneau LED"
+  },
+  "getable": true,
+  "setable": true,
+  "uiComponent": "picker",
+  "icon": "/assets/ring.svg",
+  "values": [
+    {
+      "id": "wave",
+      "title": {
+        "en": "Wave",
+        "fr": "Vague"
+      }
+    },
+    {
+      "id": "cherry_blossom",
+      "title": {
+        "en": "Cherry blossom",
+        "fr": "Fleur de cerisier"
+      }
+    },
+    {
+      "id": "christmas",
+      "title": {
+        "en": "Christmas",
+        "fr": "Noël"
+      }
+    },
+    {
+      "id": "halloween",
+      "title": {
+        "en": "Halloween",
+        "fr": "Halloween"
+      }
+    },
+    {
+      "id": "birthday_party",
+      "title": {
+        "en": "Birthday party",
+        "fr": "Fête d'anniversaire"
+      }
+    },
+    {
+      "id": "firefly",
+      "title": {
+        "en": "Firefly",
+        "fr": "Luciole"
+      }
+    },
+    {
+      "id": "other",
+      "title": {
+        "en": "Other / fixed colour",
+        "fr": "Autre / couleur fixe"
+      }
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "type": "number",
+  "title": { "en": "Fan speed", "fr": "Vitesse du ventilateur" },
+  "getable": true,
+  "setable": true,
+  "min": 1,
+  "max": 12,
+  "step": 1,
+  "decimals": 0,
+  "uiComponent": "slider",
+  "icon": "/assets/fan.svg",
+  "insights": true
+}

@@ -1,0 +1,65 @@
+{
+  "title": {
+    "en": "Set LED ring scene",
+    "fr": "Choisir la scène de l'anneau LED"
+  },
+  "titleFormatted": {
+    "en": "Set LED ring scene to [[scene]]",
+    "fr": "Lancer la scène [[scene]] sur l'anneau LED"
+  },
+  "args": [
+    {
+      "type": "device",
+      "name": "device",
+      "filter": "driver_id=ring"
+    },
+    {
+      "type": "dropdown",
+      "name": "scene",
+      "values": [
+        {
+          "id": "wave",
+          "label": {
+            "en": "Wave",
+            "fr": "Vague"
+          }
+        },
+        {
+          "id": "cherry_blossom",
+          "label": {
+            "en": "Cherry blossom",
+            "fr": "Fleur de cerisier"
+          }
+        },
+        {
+          "id": "christmas",
+          "label": {
+            "en": "Christmas",
+            "fr": "Noël"
+          }
+        },
+        {
+          "id": "halloween",
+          "label": {
+            "en": "Halloween",
+            "fr": "Halloween"
+          }
+        },
+        {
+          "id": "birthday_party",
+          "label": {
+            "en": "Birthday party",
+            "fr": "Fête d'anniversaire"
+          }
+        },
+        {
+          "id": "firefly",
+          "label": {
+            "en": "Firefly",
+            "fr": "Luciole"
+          }
+        }
+      ]
+    }
+  ]
+}
